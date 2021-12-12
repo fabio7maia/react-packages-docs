@@ -25,8 +25,6 @@ export function loader() {
 export default function Index() {
   const posts = useLoaderData();
 
-  console.log("posts", { posts });
-
   return (
     <Box>
       <Box>Example</Box>

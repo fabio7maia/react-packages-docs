@@ -7,8 +7,6 @@ export const Drawer: React.FC = () => {
     setShow((val) => !val);
   }, []);
 
-  console.log("Drawer > render", { show });
-
   return (
     <>
       <div className="flex flex-row-reverse top-20">
