@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 // Import all your posts from the app/routes/posts directory. Since these are
 // regular route modules, they will all be available for individual viewing
 // at /posts/a, for example.
-import * as Example from "~/../docs/packages/react-flow-app/example.mdx";
+import * as Example from "~/../data/docs/packages/react-flow-app/example.mdx";
 import { Box, Code } from "~/components";
 
 function postFromModule(mod) {
+  console.log(mod);
+
   return {
+    ...mod,
     slug: mod.filename.replace(/\.mdx?$/, ""),
     ...mod.attributes.meta,
   };
@@ -25,8 +28,21 @@ export function loader() {
 export default function Index() {
   const posts = useLoaderData();
 
+  console.log(posts[0]);
+
   return (
     <Box>
+      {/* {posts.map((post) => (
+        <li key={post.slug}>
+          <Link to={post.slug}>{post.title}</Link>
+          {post.description && <p>{post.description}</p>}
+          
+        </li>
+      ))} */}
+      <Example.default />
+      {/* {posts.map((post) => (
+        <post.component />
+      ))} */}
       <Box>Example</Box>
       <Box>
         <Code>const a = "1";</Code>

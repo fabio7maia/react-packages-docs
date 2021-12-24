@@ -9,7 +9,7 @@ import {
   useCatch,
 } from "remix";
 import type { LinksFunction } from "remix";
-import { Box, Menu } from "~/components";
+import { Box, Navbar } from "~/components";
 import tailwindStyles from "~/styles/tailwind.css";
 import highlightStyles from "../node_modules/highlight.js/styles/monokai.css";
 import { RemixIcon, TailwindIcon } from "~/icons";
@@ -104,7 +104,7 @@ function Document({
   title?: string;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -125,10 +125,13 @@ function Document({
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Box className="min-h-screen">
-      <Menu
+      <Navbar
         items={[
-          { text: "Flow App", url: "/docs/packages/react-flow-app" },
-          { text: "Light Form", url: "/docs/packages/react-light-form" },
+          { text: "Me", url: "/me" },
+          {
+            text: "Packages",
+            url: "/docs/packages",
+          },
           { text: "About", url: "/about" },
         ]}
       />

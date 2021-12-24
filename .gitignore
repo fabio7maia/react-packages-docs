@@ -10,3 +10,6 @@ api/build
 
 build
 app/tailwind.css
+
+# Contentlayer
+.contentlayer
