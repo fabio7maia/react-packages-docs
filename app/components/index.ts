@@ -7,4 +7,5 @@ export * from "./menu";
 export * from "./nabvar";
 export * from "./progress";
 export * from "./tabs";
+export * from "./toTop";
 export * from "./vp";
