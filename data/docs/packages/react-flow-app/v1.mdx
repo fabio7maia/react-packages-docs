@@ -1,0 +1,358 @@
+---
+meta:
+  revision: 1
+  tags: react; flow; app; navigations; events
+---
+
+🚀 Biblioteca React.js com o **objetivo de simplificar as navegações** com foco em eventos (ações do utilizador) para facilitar as integrações.
+
+Principais funcionalidades:
+
+- 🤳 Baseado em eventos (ações do utilizador)
+- 📦 Modularização da Aplicação
+- ⚙️ Centralizado na configuração para gestão das navegações
+- 🔃 Maior reutilização
+- 🧩 Integração simplificada (ex: envio de dados analíticos)
+- 🔐 Total controlo das navegações
+- 💯 Suporte para Typescript
+- 🔄 Carregamento parcial (_lazy loading_)
+- 💻 Desenvolvimento com _Intellisense_
+
+# API
+
+### 🪝 useFlow
+
+Hook que permite aceder a um conjunto de métodos e propriedades para agilizar as navegações.
+
+Para ter acesso a todos os métodos, nomeadamente ao dispatch, é necessário passar como parâmetro a configuração do ecrã.
+
+Abaixo é descrito os respetivos métodos e propriedades disponibilizas.
+
+#### back
+
+Permite navegar para o último ecrã, de acordo com a configuração do fluxo corrente.
+
+Posteriormente será abordado com mais detalhe e exemplos em concreto.
+
+```jsx
+const { back } = useFlow(flowManager.screens.screen1);
+
+...
+
+// chamar para voltar para o ecrã anterior (quando existe)
+back();
+```
+
+#### dispatch
+
+Permite indicar a ação/evento a despachar (de acordo com a configuração), nomeadamente as ações definidas para o respetivo screen passado no parâmetro do useFlow.
+
+```jsx
+const { dispatch } = useFlow(flowManager.screens.screen1);
+
+...
+
+dispatch('<action_name>');
+```
+
+#### getCurrentStep
+
+Permite obter o passo em que se encontra atualmente.
+
+```jsx
+const { getCurrentStep } = useFlow(flowManager.screens.screen1);
+
+...
+
+getCurrentStep();
+```
+
+#### getHistory
+
+Permite obter um array de passos que ficaram armazenados no histórico e na qual é possível voltar.
+
+```jsx
+const { getHistory } = useFlow(flowManager.screens.screen1);
+
+...
+
+getHistory();
+```
+
+#### getPreviousStep
+
+Permite obter o passo anterior.
+
+```jsx
+const { getPreviousStep } = useFlow(flowManager.screens.screen1);
+
+...
+
+getPreviousStep();
+```
+
+#### hasPreviousStep
+
+Permite verificar se existe passo anterior, retornando true em caso de existir e false nos restantes casos.
+
+```jsx
+const { hasPreviousStep } = useFlow(flowManager.screens.screen1);
+
+...
+
+hasPreviousStep();
+```
+
+#### refresh
+
+Permite forçar a atualização do passo/ecrã que está a ser visualizado.
+
+```jsx
+const { refresh } = useFlow(flowManager.screens.screen1);
+
+...
+
+refresh();
+```
+
+### 🪝 useFlowManager
+
+Hook que tem como objetivo disponibilizar a interação com os fluxos.
+
+#### start
+
+Permite inicializar um fluxo.
+
+```jsx
+const { start } = useFlowManager();
+
+...
+
+start(flows.flow1.start());
+```
+
+### ℹ️ FlowManager
+
+Permite criar a instância do flowManager a usar na Aplicação (deve ser usada sempre esta instância para aceder aos ecrãs).
+
+#### flow
+
+Método que permite a criação de fluxos, com a respetiva indicação dos passos que compõem o fluxo.
+
+### ℹ️ FlowProvider
+
+Provider que permite agilizar todas as navegações, necessitando que seja passada uma instância do flow manager.
+
+# Exemplos
+
+De seguida são elencados os passos necessários para o correto funcionamento da biblioteca.
+
+## 1. Configuração dos ecrãs
+
+Necessário definir as 3 propriedades seguintes:
+
+- **name**: nome do ecrã
+- **actions**: array de ações que o ecrã disponibiliza, ações estas que ficaram disponíveis no respetivo ecrã para fazer o respetivo trigger da navegação
+- **loader**: função que irá permitir carregar o respetivo ecrã (é recomendado o uso de _lazy loading_)
+
+```jsx
+// file: screens/index.tsx
+import React from 'react';
+import { FlowManager } from 'react-flow-app';
+
+const screens = {
+	screen1: {
+		name: 'screen1',
+		actions: ['next', 'skip'],
+		loader: () => React.lazy(() => import('./screen1/screen1')),
+	},
+	screen2: {
+		name: 'screen2',
+		actions: ['confirm'],
+		loader: () => React.lazy(() => import('./screen2/screen2')),
+	},
+} as const;
+
+export const flowManager = new FlowManager(screens);
+```
+
+## 2. Ecrãs
+
+```jsx
+// file: screens/screen1/screen1.tsx
+import React from "react";
+import { useFlow } from "react-flow-app";
+import { flowManager } from "..";
+
+const Screen1: React.FC = () => {
+  const { dispatch } = useFlow(flowManager.screens.screen1);
+
+  return <>
+    <h1>Screen 1 example</>
+    <button onClick={() => {
+      dispatch('next');
+    }}>Next</button>
+    <button onClick={() => {
+      dispatch('skip');
+    }}>Skip</button>
+  </>
+};
+
+export default Screen1;
+```
+
+```jsx
+// file: screens/screen2/screen2.tsx
+import React from "react";
+import { useFlow } from "react-flow-app";
+import { flowManager } from "..";
+
+const Screen2: React.FC = () => {
+  const { dispatch } = useFlow(flowManager.screens.screen2);
+
+  return <>
+    <h1>Screen 2 example</>
+    <button onClick={() => {
+      dispatch('confirm');
+    }}>Confirm</button>
+  </>
+};
+
+export default Screen2;
+```
+
+## 3. Fluxos
+
+```jsx
+// file: flows/flow1.tsx
+import { flowManager } from "@screens";
+
+export const flow1 = flowManager
+  .flow({ name: "flow1", baseUrl: "flow1" })
+  .steps({
+    screen1: {
+      initialStep: true,
+    },
+    screen2: {},
+  });
+
+hub.step("screen1")({
+  next: "screen2",
+  skip: () => {
+    // executar qualquer js que seja pretendido
+  },
+});
+
+hub.step("screen2")({
+  confirm: "screen1",
+});
+
+// integração com terceiros, exemplo: Google Tag Manager, Firebase, etc
+
+// ver ecrã
+hub.listen({
+  callback: ({ currentStepName }): void => {
+    // enviar dados
+  },
+  type: "mount",
+});
+
+// enviar evento
+hub.listen({
+  callback: ({ currentStepName, dispatch }): void => {
+    if (dispatch) {
+      const { actionName, payload } = dispatch;
+
+      // enviar dados
+    }
+  },
+  type: "dispatch",
+});
+```
+
+```jsx
+// file: flows/flow2.tsx
+import { flowManager } from "@screens";
+import { flow1 } from "./flow1";
+
+export const flow2 = flowManager
+  .flow({ name: "flow2", baseUrl: "flow2" })
+  .steps({
+    screen1: {},
+    screen2: {
+      initialStep: true,
+      clearHistory: true,
+    },
+  });
+
+hub.step("screen1")({
+  next: "screen2",
+  skip: () => {
+    return flow1.navigateTo();
+  },
+});
+
+hub.step("screen2")({
+  confirm: () => {
+    return flow1.navigateTo();
+  },
+});
+
+// integração com terceiros, exemplo: Google Tag Manager, Firebase, etc
+
+// ver ecrã
+hub.listen({
+  callback: ({ currentStepName }): void => {
+    // enviar dados
+  },
+  type: "mount",
+});
+
+// enviar evento
+hub.listen({
+  callback: ({ currentStepName, dispatch }): void => {
+    if (dispatch) {
+      const { actionName, payload } = dispatch;
+
+      // enviar dados
+    }
+  },
+  type: "dispatch",
+});
+```
+
+## 4. App
+
+```jsx
+// src/index.tsx
+import { FlowProvider } from 'react-flow-app';
+import { flowManager } from '@screens';
+
+...
+
+<FlowProvider fm={flowManager}>
+  <App />
+</FlowProvider>
+
+...
+```
+
+```jsx
+// src/app.tsx
+import { useFlowManager } from 'react-flow-app';
+import { flow1 } from '@flows';
+
+...
+const { start } = useFlowManager();
+
+
+React.useEffect(() => {
+  start(flow1.start());
+}, []);
+
+...
+```
+
+# Trabalho Futuro
+
+- dev tools

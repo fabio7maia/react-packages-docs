@@ -1951,12 +1951,6 @@ html {
   color: hsla(var(--bc) / var(--tw-text-opacity, 1));
 }
 
-.mockup-phone .display {
-  overflow: hidden;
-  border-radius: 40px;
-  margin-top: -25px;
-}
-
 .progress::-moz-progress-bar {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--n) / var(--tw-bg-opacity, 1));
@@ -2734,10 +2728,6 @@ html {
   height: 0.75rem;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2780,10 +2770,6 @@ html {
 
 .w-3 {
   width: 0.75rem;
-}
-
-.w-2 {
-  width: 0.5rem;
 }
 
 .flex-shrink-0 {
@@ -2914,16 +2900,6 @@ html {
 .bg-teal-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-
-.bg-red-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-
-.bg-indigo-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
 .fill-current {

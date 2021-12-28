@@ -19,6 +19,8 @@ export const ToTop: React.FC = ({}) => {
     event: "scroll",
   });
 
+  React.useEffect(handleOnScroll, []);
+
   const handleOnClick = React.useCallback(() => {
     window.scrollTo(0, 0);
   }, []);

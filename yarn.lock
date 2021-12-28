@@ -521,6 +521,16 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.46.tgz#0fb6bfbbeabd7a30880504993369c4bf1deab1fe"
   integrity sha512-laIjwTQaD+5DukBZaygQ79K1Z0jb1bPEMRrkXSLjtCcZm+abyp5YbrqpSLzD42FwWW6gK/aS4NYpJ804nG2brg==
 
+"@types/extend@^3.0.0":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/extend/-/extend-3.0.1.tgz#923dc2d707d944382433e01d6cc0c69030ab2c75"
+  integrity sha512-R1g/VyKFFI2HLC1QGAeTtCBWCo6n75l41OnsVYNbmKG+kempOESaodf6BeJyUM3Q0rKa/NQcTHbB2+66lNnxLw==
+
+"@types/github-slugger@^1.0.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@types/github-slugger/-/github-slugger-1.3.0.tgz#16ab393b30d8ae2a111ac748a015ac05a1fc5524"
+  integrity sha512-J/rMZa7RqiH/rT29TEVZO4nBoDP9XJOjnbbIofg7GQKs4JIduEO3WLpte+6WeUz/TcrXKlY+bM7FYrp8yFB+3g==
+
 "@types/glob@^7.1.3":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
@@ -1408,10 +1418,57 @@ electron-to-chromium@^1.4.17:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.27.tgz#bfc6e798d8a56a17d658312f4b7ae1a7ca87724f"
   integrity sha512-uZ95szi3zUbzRDx1zx/xnsCG+2xgZyy57pDOeaeO4r8zx5Dqe8Jv1ti8cunvBwJHVI5LzPuw8umKwZb3WKYxSQ==
 
+emoji-chars@^1.0.0:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/emoji-chars/-/emoji-chars-1.0.12.tgz#432591cac3eafd58beb80f8b5b5e950a96c8de17"
+  integrity sha512-1t7WbkKzQ1hV4dHWM4u8g0SFHSAbxx+8o/lvXisDLTesljSFaxl2wLgMtx4wH922sNcIuLbFty/AuqUDJORd1A==
+  dependencies:
+    emoji-unicode-map "^1.0.0"
+
+emoji-dictionary@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/emoji-dictionary/-/emoji-dictionary-1.0.11.tgz#dc3463e4d768a1e11ffabc9362ac0092472bd308"
+  integrity sha512-pVTiN0StAU2nYy+BtcX/88DavMDjUcONIA6Qsg7/IyDq8xOsRFuC49F7XLUPr7Shlz4bt0/RAqPjuqjpsj3vbA==
+  dependencies:
+    emoji-chars "^1.0.0"
+    emoji-name-map "^1.0.0"
+    emoji-names "^1.0.1"
+    emoji-unicode-map "^1.0.0"
+    emojilib "^2.0.2"
+
+emoji-name-map@^1.0.0, emoji-name-map@^1.1.0:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/emoji-name-map/-/emoji-name-map-1.2.9.tgz#32a0788e748d9c7185a29a000102fb263fe2892d"
+  integrity sha512-MSM8y6koSqh/2uEMI2VoKA+Ac0qL5RkgFGP/pzL6n5FOrOJ7FOZFxgs7+uNpqA+AT+WmdbMPXkd3HnFXXdz4AA==
+  dependencies:
+    emojilib "^2.0.2"
+    iterate-object "^1.3.1"
+    map-o "^2.0.1"
+
+emoji-names@^1.0.1:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/emoji-names/-/emoji-names-1.0.12.tgz#4789d72af311e3a9b0343fe8752e77420e32f8f9"
+  integrity sha512-ABXVMPYU9h1/0lNNE9VaT9OxxWXXAv/By8gVMzQYIx7jrhWjyLFVyC34CAN+EP/1e+5WZCklvClo5KSklPCAeg==
+  dependencies:
+    emoji-name-map "^1.0.0"
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
+emoji-unicode-map@^1.0.0:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/emoji-unicode-map/-/emoji-unicode-map-1.1.11.tgz#bc3f726abb186cc4f156316d69322f9067e30947"
+  integrity sha512-GWcWILFyDfR8AU7FRLhKk0lnvcljoEIXejg+XY3Ogz6/ELaQLMo0m4d9R3i79ikIULVEysHBGPsOEcjcFxtN+w==
+  dependencies:
+    emoji-name-map "^1.1.0"
+    iterate-object "^1.3.1"
+
+emojilib@^2.0.2:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/emojilib/-/emojilib-2.4.0.tgz#ac518a8bb0d5f76dda57289ccb2fdf9d39ae721e"
+  integrity sha512-5U0rVMU5Y2n2+ykNLQqMoqklN9ICBT/KsvC1Gz6vqHbz2AXXGkG+Pm5rMWk/8Vjrr/mY9985Hi8DYzn1F09Nyw==
 
 emojis-list@^3.0.0:
   version "3.0.0"
@@ -2005,7 +2062,7 @@ get-symbol-description@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.1"
 
-github-slugger@^1.1.1:
+github-slugger@^1.0.0, github-slugger@^1.1.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/github-slugger/-/github-slugger-1.4.0.tgz#206eb96cdb22ee56fdc53a28d5a302338463444e"
   integrity sha512-w0dzqw/nt51xMVmlaV1+JRzN+oCa1KfcgGEWhxUG16wbdA+Xnt/yoFO8Z8x/V82ZcZ0wy6ln9QDup5avbhiDhQ==
@@ -2215,6 +2272,15 @@ hast-util-to-string@^2.0.0:
   dependencies:
     "@types/hast" "^2.0.0"
 
+hast-util-to-text@^3.0.0:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/hast-util-to-text/-/hast-util-to-text-3.1.1.tgz#b7699a75f7a61af6e0befb67660cd78460d96dc6"
+  integrity sha512-7S3mOBxACy8syL45hCn3J7rHqYaXkxRfsX6LXEU5Shz4nt4GxdjtMUtG+T6G/ZLUHd7kslFAf14kAN71bz30xA==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    hast-util-is-element "^2.0.0"
+    unist-util-find-after "^4.0.0"
+
 hast-util-whitespace@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/hast-util-whitespace/-/hast-util-whitespace-2.0.0.tgz#4fc1086467cc1ef5ba20673cb6b03cec3a970f1c"
@@ -2235,6 +2301,11 @@ highlight.js@^10.5.0:
   version "10.7.3"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
   integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
+
+highlight.js@~11.3.0:
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.3.1.tgz#813078ef3aa519c61700f84fe9047231c5dc3291"
+  integrity sha512-PUhCRnPjLtiLHZAQ5A/Dt5F8cWZeMyj9KRsACsWT+OD6OP0x6dp5OmT5jdx0JgEyPxPZZIPQpRN2TciUT7occw==
 
 history@^5.2.0:
   version "5.2.0"
@@ -2558,6 +2629,11 @@ is-weakref@^1.0.1:
   dependencies:
     call-bind "^1.0.2"
 
+iterate-object@^1.3.0, iterate-object@^1.3.1:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.4.tgz#fa50b1d9e58e340a7dd6b4c98c8a5e182e790096"
+  integrity sha512-4dG1D1x/7g8PwHS9aK6QV5V94+ZvyP4+d19qDv43EzImmrndysIl4prmJ1hWWIGCqrZHyaHBm6BSEWHOLnpoNw==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -2741,12 +2817,28 @@ lowercase-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-2.0.0.tgz#2603e78b7b4b0006cbca2fbcc8a3202558ac9479"
   integrity sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==
 
+lowlight@^2.0.0:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-2.4.1.tgz#59ea891967ec83395f2d61de8cbfe3fa9cd401c7"
+  integrity sha512-mQkAG0zGQ9lcYecEft+hl9uV1fD6HpURA83/TYrsxKvb8xX2mfyB+aaV/A/aWmhhEcWVzr9Cc+l/fvUYfEUumw==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    fault "^2.0.0"
+    highlight.js "~11.3.0"
+
 lru-cache@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
+
+map-o@^2.0.1:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/map-o/-/map-o-2.0.10.tgz#b656a75cead939a936c338fb5df8c9d55f0dbb23"
+  integrity sha512-BxazE81fVByHWasyXhqKeo2m7bFKYu+ZbEfiuexMOnklXW+tzDvnlTi/JaklEeuuwqcqJzPaf9q+TWptSGXeLg==
+  dependencies:
+    iterate-object "^1.3.0"
 
 map-obj@^1.0.0:
   version "1.0.1"
@@ -2954,6 +3046,20 @@ mdast-util-to-string@^3.0.0, mdast-util-to-string@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-3.1.0.tgz#56c506d065fbf769515235e577b5a261552d56e9"
   integrity sha512-n4Vypz/DZgwo0iMHLQL49dJzlp7YtAJP+N07MZHpjPf/5XJuHUWstviF4Mn2jEiR/GNmtnRRqnwsXExk3igfFA==
+
+mdast-util-toc@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/mdast-util-toc/-/mdast-util-toc-6.1.0.tgz#1f38419f5ce774449c8daa87b39a4d940b24be7c"
+  integrity sha512-0PuqZELXZl4ms1sF7Lqigrqik4Ll3UhbI+jdTrfw7pZ9QPawgl7LD4GQ8MkU7bT/EwiVqChNTbifa2jLLKo76A==
+  dependencies:
+    "@types/extend" "^3.0.0"
+    "@types/github-slugger" "^1.0.0"
+    "@types/mdast" "^3.0.0"
+    extend "^3.0.0"
+    github-slugger "^1.0.0"
+    mdast-util-to-string "^3.1.0"
+    unist-util-is "^5.0.0"
+    unist-util-visit "^3.0.0"
 
 mdurl@^1.0.0:
   version "1.0.1"
@@ -4075,6 +4181,17 @@ rehype-code-titles@^1.0.3:
   dependencies:
     unist-util-visit "^3.0.0"
 
+rehype-highlight@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/rehype-highlight/-/rehype-highlight-5.0.2.tgz#de952123cd4d9672f21a4a38d3b119b88a08eafa"
+  integrity sha512-ZNm8V8BQUDn05cJPzAu/PjiloaFFrh+Pt3bY+NCcdCggI7Uyl5mW0FGR7RATeIz5/ECUd1D8Kvjt4HaLPmnOMw==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    hast-util-to-text "^3.0.0"
+    lowlight "^2.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
+
 rehype-parse@^8.0.2:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/rehype-parse/-/rehype-parse-8.0.3.tgz#a1947132a08a930d0c2b6fd2b3dbcc137457c07a"
@@ -4141,7 +4258,7 @@ remark-gfm@^3.0.1:
     micromark-extension-gfm "^2.0.0"
     unified "^10.0.0"
 
-remark-mdx-frontmatter@^1.0.1:
+remark-mdx-frontmatter@^1.0.1, remark-mdx-frontmatter@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/remark-mdx-frontmatter/-/remark-mdx-frontmatter-1.1.1.tgz#54cfb3821fbb9cb6057673e0570ae2d645f6fe32"
   integrity sha512-7teX9DW4tI2WZkXS4DBxneYSY7NHiXl4AKdWDO9LXVweULlCT8OPWsOjLEnMIXViN1j+QcY8mfbq3k0EK6x3uA==
@@ -4178,6 +4295,15 @@ remark-rehype@^9.0.0:
     "@types/hast" "^2.0.0"
     "@types/mdast" "^3.0.0"
     mdast-util-to-hast "^11.0.0"
+    unified "^10.0.0"
+
+remark-toc@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/remark-toc/-/remark-toc-8.0.1.tgz#f3e07ea13734f1c531e3d3460e58babe31d17cd7"
+  integrity sha512-7he2VOm/cy13zilnOTZcyAoyoolV26ULlon6XyCFU+vG54Z/LWJnwphj/xKIDLOt66QmJUgTyUvLVHi2aAElyg==
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    mdast-util-toc "^6.0.0"
     unified "^10.0.0"
 
 remix@^1.0.6:
@@ -4710,6 +4836,14 @@ unist-util-filter@^4.0.0:
     "@types/unist" "^2.0.0"
     unist-util-is "^5.0.0"
     unist-util-visit-parents "^5.0.0"
+
+unist-util-find-after@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/unist-util-find-after/-/unist-util-find-after-4.0.0.tgz#1101cebf5fed88ae3c6f3fa676e86fd5772a4f32"
+  integrity sha512-gfpsxKQde7atVF30n5Gff2fQhAc4/HTOV4CvkXpTg9wRfQhZWdXitpyXHWB6YcYgnsxLx+4gGHeVjCTAAp9sjw==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-is "^5.0.0"
 
 unist-util-generated@^2.0.0:
   version "2.0.0"

@@ -43,11 +43,11 @@ export const Tabs: React.FC<TabsProps> = ({
           </Box>
         ))}
       </Box>
-      {withProgress && (
+      {/* {withProgress && (
         <Box className="py-2">
           <Progress value={77} />
         </Box>
-      )}
+      )} */}
       {tabIndex !== undefined && (
         <Box className="py-6">{items[tabIndex].children}</Box>
       )}

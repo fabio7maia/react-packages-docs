@@ -10,18 +10,18 @@ export const Doc: React.FC = ({ children }) => {
 
   React.useEffect(() => {
     if (articleRef.current) {
-      const headings = [...articleRef.current.querySelectorAll("h1")];
+      const headings = [...articleRef.current.querySelectorAll("h1, h2")];
 
       const anchorsUpdate = [];
 
       for (let i = 0; i < headings.length; i++) {
-        const h1 = headings[i];
+        const h = headings[i];
         const id = `heading${i}`;
 
-        h1.setAttribute("id", id);
+        h.setAttribute("id", id);
         anchorsUpdate.push({
           href: `#${id}`,
-          children: h1.innerText,
+          children: h.innerHTML,
         });
       }
 
