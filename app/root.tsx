@@ -133,7 +133,6 @@ function Layout({ children }: { children: React.ReactNode }) {
               text: "Packages",
               url: "/docs/packages",
             },
-            { text: "About", url: "/about" },
           ]}
         />
         <Box className="p-4 lg:p-12 flex-grow">{children}</Box>
