@@ -136,7 +136,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           ]}
         />
         <Box className="p-4 lg:p-12 flex-grow">{children}</Box>
-        <Box className="bg-indigo-300 text-center w-full p-4 text-white text-xl">
+        <Box className="bg-accent text-center w-full p-4 text-white text-xl">
           <Box>Powered by</Box>
           <Box row className="justify-center pt-4">
             <Box className="w-32 justify-center items-center">
