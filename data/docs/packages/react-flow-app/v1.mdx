@@ -18,17 +18,20 @@ Principais funcionalidades:
 - 🔄 Carregamento parcial (_lazy loading_)
 - 💻 Desenvolvimento com _Intellisense_
 
-# API
+<br />
+<br />
 
-### 🪝 useFlow
+# ⚒️ 1. API
+
+## ℹ️ 1.1. useFlow
 
 Hook que permite aceder a um conjunto de métodos e propriedades para agilizar as navegações.
 
 Para ter acesso a todos os métodos, nomeadamente ao dispatch, é necessário passar como parâmetro a configuração do ecrã.
 
-Abaixo é descrito os respetivos métodos e propriedades disponibilizas.
+Abaixo são descritos os respetivos métodos e propriedades disponibilizadas.
 
-#### back
+### 📍 1.1.1. back
 
 Permite navegar para o último ecrã, de acordo com a configuração do fluxo corrente.
 
@@ -43,7 +46,7 @@ const { back } = useFlow(flowManager.screens.screen1);
 back();
 ```
 
-#### dispatch
+### 📍 1.1.2. dispatch
 
 Permite indicar a ação/evento a despachar (de acordo com a configuração), nomeadamente as ações definidas para o respetivo screen passado no parâmetro do useFlow.
 
@@ -55,9 +58,9 @@ const { dispatch } = useFlow(flowManager.screens.screen1);
 dispatch('<action_name>');
 ```
 
-#### getCurrentStep
+### 📍 1.1.3. getCurrentStep
 
-Permite obter o passo em que se encontra atualmente.
+Permite obter o passo atual.
 
 ```jsx
 const { getCurrentStep } = useFlow(flowManager.screens.screen1);
@@ -67,7 +70,7 @@ const { getCurrentStep } = useFlow(flowManager.screens.screen1);
 getCurrentStep();
 ```
 
-#### getHistory
+### 📍 1.1.4. getHistory
 
 Permite obter um array de passos que ficaram armazenados no histórico e na qual é possível voltar.
 
@@ -79,7 +82,7 @@ const { getHistory } = useFlow(flowManager.screens.screen1);
 getHistory();
 ```
 
-#### getPreviousStep
+### 📍 1.1.5. getPreviousStep
 
 Permite obter o passo anterior.
 
@@ -91,7 +94,7 @@ const { getPreviousStep } = useFlow(flowManager.screens.screen1);
 getPreviousStep();
 ```
 
-#### hasPreviousStep
+### 📍 1.1.6. hasPreviousStep
 
 Permite verificar se existe passo anterior, retornando true em caso de existir e false nos restantes casos.
 
@@ -103,7 +106,7 @@ const { hasPreviousStep } = useFlow(flowManager.screens.screen1);
 hasPreviousStep();
 ```
 
-#### refresh
+### 📍 1.1.7. refresh
 
 Permite forçar a atualização do passo/ecrã que está a ser visualizado.
 
@@ -115,11 +118,11 @@ const { refresh } = useFlow(flowManager.screens.screen1);
 refresh();
 ```
 
-### 🪝 useFlowManager
+## ℹ️ 1.2. useFlowManager
 
 Hook que tem como objetivo disponibilizar a interação com os fluxos.
 
-#### start
+### 📍 1.2.1 start
 
 Permite inicializar um fluxo.
 
@@ -131,23 +134,26 @@ const { start } = useFlowManager();
 start(flows.flow1.start());
 ```
 
-### ℹ️ FlowManager
+## ℹ️ 1.3. FlowManager
 
 Permite criar a instância do flowManager a usar na Aplicação (deve ser usada sempre esta instância para aceder aos ecrãs).
 
-#### flow
+### 📍 1.3.1. flow
 
 Método que permite a criação de fluxos, com a respetiva indicação dos passos que compõem o fluxo.
 
-### ℹ️ FlowProvider
+## ℹ️ 1.4. FlowProvider
 
 Provider que permite agilizar todas as navegações, necessitando que seja passada uma instância do flow manager.
 
-# Exemplos
+<br />
+<br />
+
+# 🧑🏼‍💻 2. Exemplos
 
 De seguida são elencados os passos necessários para o correto funcionamento da biblioteca.
 
-## 1. Configuração dos ecrãs
+## 2.1. Configuração dos ecrãs
 
 Necessário definir as 3 propriedades seguintes:
 
@@ -176,7 +182,7 @@ const screens = {
 export const flowManager = new FlowManager(screens);
 ```
 
-## 2. Ecrãs
+## 2.2. Ecrãs
 
 ```jsx
 // file: screens/screen1/screen1.tsx
@@ -221,7 +227,7 @@ const Screen2: React.FC = () => {
 export default Screen2;
 ```
 
-## 3. Fluxos
+## 2.3. Fluxos
 
 ```jsx
 // file: flows/flow1.tsx
@@ -321,7 +327,7 @@ hub.listen({
 });
 ```
 
-## 4. App
+## 2.4. App
 
 ```jsx
 // src/index.tsx
@@ -353,6 +359,9 @@ React.useEffect(() => {
 ...
 ```
 
-# Trabalho Futuro
+<br />
+<br />
+
+# 🔥 3. Trabalho Futuro
 
 - dev tools
