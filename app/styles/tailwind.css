@@ -1566,6 +1566,43 @@ html {
   visibility: visible;
 }
 
+.footer {
+  display: grid;
+  place-items: start;
+  width: 100%;
+  grid-auto-flow: row;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  -moz-column-gap: 1rem;
+  column-gap: 1rem;
+  row-gap: 2.5rem;
+}
+
+.footer>* {
+  display: grid;
+  place-items: start;
+  gap: .5rem;
+}
+
+.footer-center {
+  place-items: center;
+  text-align: center;
+}
+
+.footer-center>* {
+  place-items: center;
+}
+
+@media (min-width:48rem) {
+  .footer {
+    grid-auto-flow: column;
+  }
+
+  .footer-center {
+    grid-auto-flow: row dense;
+  }
+}
+
 .input {
   flex-shrink: 1;
   transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
@@ -2634,6 +2671,10 @@ html {
   margin: 0.25rem;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2728,6 +2769,10 @@ html {
   height: 0.75rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2772,6 +2817,34 @@ html {
   width: 0.75rem;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
+.max-w-min {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+
+.max-w-fit {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -2814,6 +2887,10 @@ html {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .rounded-lg {
@@ -2867,14 +2944,14 @@ html {
   border-color: rgb(45 212 191 / var(--tw-border-opacity));
 }
 
-.bg-indigo-300 {
+.bg-accent {
   --tw-bg-opacity: 1;
-  background-color: rgb(165 180 252 / var(--tw-bg-opacity));
+  background-color: hsla(var(--a) / var(--tw-bg-opacity));
 }
 
-.bg-slate-200 {
+.bg-base-content {
   --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  background-color: hsla(var(--bc) / var(--tw-bg-opacity));
 }
 
 .bg-gray-800 {
@@ -2897,24 +2974,24 @@ html {
   background-color: hsla(var(--p) / var(--tw-bg-opacity));
 }
 
-.bg-teal-500 {
+.bg-primary-content {
   --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-
-.bg-accent {
-  --tw-bg-opacity: 1;
-  background-color: hsla(var(--a) / var(--tw-bg-opacity));
-}
-
-.bg-base-content {
-  --tw-bg-opacity: 1;
-  background-color: hsla(var(--bc) / var(--tw-bg-opacity));
+  background-color: hsla(var(--pc) / var(--tw-bg-opacity));
 }
 
 .bg-secondary {
   --tw-bg-opacity: 1;
   background-color: hsla(var(--s) / var(--tw-bg-opacity));
+}
+
+.bg-primary-focus {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--pf) / var(--tw-bg-opacity));
+}
+
+.bg-base-200 {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--b2) / var(--tw-bg-opacity));
 }
 
 .fill-current {
@@ -2931,6 +3008,10 @@ html {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-8 {
@@ -2993,6 +3074,10 @@ html {
   padding-bottom: 0.75rem;
 }
 
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -3050,6 +3135,11 @@ html {
 .text-teal-200 {
   --tw-text-opacity: 1;
   color: rgb(153 246 228 / var(--tw-text-opacity));
+}
+
+.text-base-content {
+  --tw-text-opacity: 1;
+  color: hsla(var(--bc) / var(--tw-text-opacity));
 }
 
 .shadow {
@@ -3112,9 +3202,231 @@ html {
   .sm\:hidden {
     display: none;
   }
+
+  .sm\:w-9\/12 {
+    width: 75%;
+  }
+
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:max-w-screen-sm {
+    max-width: 640px;
+  }
 }
 
 @media (min-width: 768px) {
+  .md\:prose-2xl {
+    font-size: 1.5rem;
+    line-height: 1.6666667;
+  }
+
+  .md\:prose-2xl :where(p):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.3333333em;
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:prose-2xl :where([class~="lead"]):not(:where([class~="not-prose"] *)) {
+    font-size: 1.25em;
+    line-height: 1.4666667;
+    margin-top: 1.0666667em;
+    margin-bottom: 1.0666667em;
+  }
+
+  .md\:prose-2xl :where(blockquote):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.7777778em;
+    margin-bottom: 1.7777778em;
+    padding-left: 1.1111111em;
+  }
+
+  .md\:prose-2xl :where(h1):not(:where([class~="not-prose"] *)) {
+    font-size: 2.6666667em;
+    margin-top: 0;
+    margin-bottom: 0.875em;
+    line-height: 1;
+  }
+
+  .md\:prose-2xl :where(h2):not(:where([class~="not-prose"] *)) {
+    font-size: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8333333em;
+    line-height: 1.0833333;
+  }
+
+  .md\:prose-2xl :where(h3):not(:where([class~="not-prose"] *)) {
+    font-size: 1.5em;
+    margin-top: 1.5555556em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.2222222;
+  }
+
+  .md\:prose-2xl :where(h4):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.6666667em;
+    margin-bottom: 0.6666667em;
+    line-height: 1.5;
+  }
+
+  .md\:prose-2xl :where(img):not(:where([class~="not-prose"] *)) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .md\:prose-2xl :where(video):not(:where([class~="not-prose"] *)) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .md\:prose-2xl :where(figure):not(:where([class~="not-prose"] *)) {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .md\:prose-2xl :where(figure > *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .md\:prose-2xl :where(figcaption):not(:where([class~="not-prose"] *)) {
+    font-size: 0.8333333em;
+    line-height: 1.6;
+    margin-top: 1em;
+  }
+
+  .md\:prose-2xl :where(code):not(:where([class~="not-prose"] *)) {
+    font-size: 0.8333333em;
+  }
+
+  .md\:prose-2xl :where(h2 code):not(:where([class~="not-prose"] *)) {
+    font-size: 0.875em;
+  }
+
+  .md\:prose-2xl :where(h3 code):not(:where([class~="not-prose"] *)) {
+    font-size: 0.8888889em;
+  }
+
+  .md\:prose-2xl :where(pre):not(:where([class~="not-prose"] *)) {
+    font-size: 0.8333333em;
+    line-height: 1.8;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 0.5rem;
+    padding-top: 1.2em;
+    padding-right: 1.6em;
+    padding-bottom: 1.2em;
+    padding-left: 1.6em;
+  }
+
+  .md\:prose-2xl :where(ol):not(:where([class~="not-prose"] *)) {
+    padding-left: 1.5833333em;
+  }
+
+  .md\:prose-2xl :where(ul):not(:where([class~="not-prose"] *)) {
+    padding-left: 1.5833333em;
+  }
+
+  .md\:prose-2xl :where(li):not(:where([class~="not-prose"] *)) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .md\:prose-2xl :where(ol > li):not(:where([class~="not-prose"] *)) {
+    padding-left: 0.4166667em;
+  }
+
+  .md\:prose-2xl :where(ul > li):not(:where([class~="not-prose"] *)) {
+    padding-left: 0.4166667em;
+  }
+
+  .md\:prose-2xl > :where(ul > li p):not(:where([class~="not-prose"] *)) {
+    margin-top: 0.8333333em;
+    margin-bottom: 0.8333333em;
+  }
+
+  .md\:prose-2xl > :where(ul > li > *:first-child):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.3333333em;
+  }
+
+  .md\:prose-2xl > :where(ul > li > *:last-child):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:prose-2xl > :where(ol > li > *:first-child):not(:where([class~="not-prose"] *)) {
+    margin-top: 1.3333333em;
+  }
+
+  .md\:prose-2xl > :where(ol > li > *:last-child):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 1.3333333em;
+  }
+
+  .md\:prose-2xl :where(ul ul, ul ol, ol ul, ol ol):not(:where([class~="not-prose"] *)) {
+    margin-top: 0.6666667em;
+    margin-bottom: 0.6666667em;
+  }
+
+  .md\:prose-2xl :where(hr):not(:where([class~="not-prose"] *)) {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+
+  .md\:prose-2xl :where(hr + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+  .md\:prose-2xl :where(h2 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+  .md\:prose-2xl :where(h3 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+  .md\:prose-2xl :where(h4 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+  .md\:prose-2xl :where(table):not(:where([class~="not-prose"] *)) {
+    font-size: 0.8333333em;
+    line-height: 1.4;
+  }
+
+  .md\:prose-2xl :where(thead th):not(:where([class~="not-prose"] *)) {
+    padding-right: 0.6em;
+    padding-bottom: 0.8em;
+    padding-left: 0.6em;
+  }
+
+  .md\:prose-2xl :where(thead th:first-child):not(:where([class~="not-prose"] *)) {
+    padding-left: 0;
+  }
+
+  .md\:prose-2xl :where(thead th:last-child):not(:where([class~="not-prose"] *)) {
+    padding-right: 0;
+  }
+
+  .md\:prose-2xl :where(tbody td):not(:where([class~="not-prose"] *)) {
+    padding-top: 0.8em;
+    padding-right: 0.6em;
+    padding-bottom: 0.8em;
+    padding-left: 0.6em;
+  }
+
+  .md\:prose-2xl :where(tbody td:first-child):not(:where([class~="not-prose"] *)) {
+    padding-left: 0;
+  }
+
+  .md\:prose-2xl :where(tbody td:last-child):not(:where([class~="not-prose"] *)) {
+    padding-right: 0;
+  }
+
+  .md\:prose-2xl > :where(:first-child):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+
+  .md\:prose-2xl > :where(:last-child):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 0;
+  }
+
   .md\:h-full {
     height: 100%;
   }

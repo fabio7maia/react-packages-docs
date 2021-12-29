@@ -9,7 +9,7 @@ import {
   useCatch,
 } from "remix";
 import type { LinksFunction } from "remix";
-import { Box, Navbar, ToTop } from "~/components";
+import { Box, Footer, Navbar, ToTop } from "~/components";
 import tailwindStyles from "~/styles/tailwind.css";
 import highlightStyles from "../node_modules/highlight.js/styles/monokai.css";
 import { RemixIcon, TailwindIcon } from "~/icons";
@@ -124,7 +124,7 @@ function Document({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <Box className="overflow-hidden">
       <Box className="min-h-screen">
         <Navbar
           items={[
@@ -136,19 +136,21 @@ function Layout({ children }: { children: React.ReactNode }) {
           ]}
         />
         <Box className="p-4 lg:p-12 flex-grow">{children}</Box>
-        <Box className="bg-accent text-center w-full p-4 text-white text-xl">
-          <Box>Powered by</Box>
-          <Box row className="justify-center pt-4">
-            <Box className="w-32 justify-center items-center">
-              <RemixIcon />
-            </Box>
-            <Box className="w-32 justify-center items-center">
-              <TailwindIcon />
+        <Footer>
+          <Box>
+            <Box>Powered by</Box>
+            <Box row className="justify-center pt-4">
+              <Box className="w-32 justify-center items-center">
+                <RemixIcon />
+              </Box>
+              <Box className="w-32 justify-center items-center">
+                <TailwindIcon />
+              </Box>
             </Box>
           </Box>
-        </Box>
+        </Footer>
       </Box>
       <ToTop />
-    </>
+    </Box>
   );
 }

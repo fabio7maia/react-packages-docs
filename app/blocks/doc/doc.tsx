@@ -45,9 +45,9 @@ export const Doc: React.FC = ({ children }) => {
         </Article>
       </Box>
       <VP viewport="sm">
-        <Box className="fixed right-2">
+        <Box className="fixed right-4">
           <Dropdown items={anchors}>
-            <ViewListIcon className="h-8 w-8" />
+            <ViewListIcon className="h-6 w-6" />
           </Dropdown>
         </Box>
       </VP>

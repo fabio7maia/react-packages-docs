@@ -3,6 +3,7 @@ export * from "./box";
 export * from "./code";
 export * from "./drawer";
 export * from "./dropdown";
+export * from "./footer";
 export * from "./menu";
 export * from "./nabvar";
 export * from "./progress";
