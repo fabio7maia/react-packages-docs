@@ -82,7 +82,19 @@ const { getHistory } = useFlow(flowManager.screens.screen1);
 getHistory();
 ```
 
-### 📍 1.1.5. getPreviousStep
+### 📍 1.1.5. getLastAction
+
+Permite obter a última ação realizada no flow actual.
+
+```jsx
+const { getLastAction } = useFlow(flowManager.screens.screen1);
+
+...
+
+getLastAction();
+```
+
+### 📍 1.1.6. getPreviousStep
 
 Permite obter o passo anterior.
 
@@ -94,7 +106,7 @@ const { getPreviousStep } = useFlow(flowManager.screens.screen1);
 getPreviousStep();
 ```
 
-### 📍 1.1.6. hasPreviousStep
+### 📍 1.1.7. hasPreviousStep
 
 Permite verificar se existe passo anterior, retornando true em caso de existir e false nos restantes casos.
 
@@ -106,7 +118,7 @@ const { hasPreviousStep } = useFlow(flowManager.screens.screen1);
 hasPreviousStep();
 ```
 
-### 📍 1.1.7. refresh
+### 📍 1.1.8. refresh
 
 Permite forçar a atualização do passo/ecrã que está a ser visualizado.
 
